@@ -1,0 +1,29 @@
+{
+	"name": "cn.com.phicommunity.phicommunity",
+	"displayName": "PhiCommunity",
+	"version": "1.0.0",
+	"description": "A community driven project to make a game like phigros.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"check": "cordova requirements",
+		"add-platform:android": "cordova platform add android@latest --save",
+		"build": "npm run build:debug",
+		"build:debug": "cordova build --debug --buildConfig=build.json",
+		"build:release": "cordova build --release --buildConfig=build.json"
+	},
+	"keywords": [
+		"phigros","javascript","rhythm-game","rhythm-games","music-game","community-driven","fanmade","cordova"
+	],
+	"author": "HanHan233",
+	"license": "GPL-3.0",
+	"devDependencies": {
+		"cordova-android": "10.1.1",
+		"save": "^2.4.0"
+	},
+	"cordova": {
+		"platforms": [
+			"android"
+		]
+	}
+}

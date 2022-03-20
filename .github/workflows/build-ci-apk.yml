@@ -1,0 +1,72 @@
+name: Build CI APK
+
+on:
+  push:
+    branches:
+      - main
+ repository_dispatch:
+    types: [build-ci-apk]
+
+jobs:
+  CI-Build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v2
+        with:
+          ref: main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '17'
+
+      - name: Setup Cache
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: |
+            ${{ github.workspace }}/.opt/cache/gradle/wrapper
+            ${{ github.workspace }}/.opt/cache/gradle/caches
+            ${{ github.workspace }}/.opt/sdk
+            ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Clone PhiCommunity
+        run: git clone -b gh-pages https://github.com/HanHan233/PhiCommunity ./www/
+
+      - name: Setup JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
+      - name: Install Dependences of PhiCommunityAPP
+        run: |
+          npm install -g cordova
+          npm install
+
+      - name: Add platform-Android
+        run: npm run add-platform:android
+
+      - name: Check Build Requirements
+        run: npm run check
+          
+      - name: Build APK
+        run: npm run build:debug
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: PhiCommunity-CI-APK
+          path: app/build/outputs/apk/debug/app-debug.apk
