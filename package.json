@@ -9,7 +9,7 @@
 		"check": "cordova requirements",
 		"add-platform:android": "cordova platform add android@latest --save",
 		"build": "npm run build:debug",
-		"build:debug": "cordova build --debug --buildConfig=build.json",
+		"build:debug": "cordova build --debug",
 		"build:release": "cordova build --release --buildConfig=build.json"
 	},
 	"keywords": [

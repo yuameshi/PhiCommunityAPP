@@ -1,14 +1,14 @@
 name: Build CI APK
 
-on:
+on: 
+  workflow_dispatch:
+  repository_dispatch:
   push:
     branches:
       - main
- repository_dispatch:
-    types: [build-ci-apk]
 
 jobs:
-  CI-Build:
+  build:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
 
@@ -69,4 +69,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: PhiCommunity-CI-APK
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: platforms/android/app/build/outputs/apk/
