@@ -1,7 +1,7 @@
 {
 	"name": "cn.com.phicommunity.phicommunity",
 	"displayName": "PhiCommunity",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "A community driven project to make a game like phigros.",
 	"main": "index.js",
 	"scripts": {
@@ -16,7 +16,7 @@
 		"phigros","javascript","rhythm-game","rhythm-games","music-game","community-driven","fanmade","cordova"
 	],
 	"author": "HanHan233",
-	"license": "GPL-3.0",
+	"license": "AGPL-3.0",
 	"devDependencies": {
 		"cordova-android": "10.1.1",
 		"save": "^2.4.0"
