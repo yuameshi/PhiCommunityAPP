@@ -2,7 +2,7 @@
 
 # 这里是哪里
 
-这里是[PhiCommunity](https://github.com/HanHan233/PhiCommunity)的客户端仓库，目前只有Android客户端，使用Cordova开发。
+这里是[PhiCommunity](https://github.com/Yuameshi/PhiCommunity)的客户端仓库，目前只有Android客户端，使用Cordova开发。
 
 # 构建指南
 
@@ -11,7 +11,7 @@
 执行以下命令，克隆并构建PhiCommunity可浏览网页：
 
 ```sh
-git clone https://github.com/HanHan233/PhiCommunity
+git clone https://github.com/Yuameshi/PhiCommunity
 cd ./PhiCommunity/
 sudo npm install webpack webpack-cli -g
 npm install
@@ -22,7 +22,7 @@ rm -rf ./PhiCommunity/*
 ```
 或者直接克隆`gh-pages`分支
 ```sh
-git clone -b gh-pages https://github.com/HanHan233/PhiCommunity www
+git clone -b gh-pages https://github.com/Yuameshi/PhiCommunity www
 rm -rf www/.git/*
 ```
 

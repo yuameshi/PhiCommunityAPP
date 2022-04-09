@@ -8,8 +8,8 @@
 	xmlns:tools="http://schemas.android.com/tools">
 	<name>PhiCommunity</name>
 	<description>A community driven project to make a game like phigros.</description>
-	<author email="hanhan.233@qq.com" href="https://www.han-han.xyz">
-		HanHan233
+	<author email="yuameshi@outlook.com" href="https://www.han-han.xyz">
+		Yuameshi
 	</author>
 	<content src="tapToStart/index.html" />
 	<allow-intent href="http://*/*" />
